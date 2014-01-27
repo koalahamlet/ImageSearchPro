@@ -17,6 +17,7 @@ public class ImageDisplayActivity extends Activity {
 		ImageResult image = (ImageResult) getIntent().getSerializableExtra("result");
 		ivImage = (SmartImageView) findViewById(R.id.ivResult);
 		ivImage.setImageUrl(image.getFullUrl());
+		String sting;
 		
 	}
 
