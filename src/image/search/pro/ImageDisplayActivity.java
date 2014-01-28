@@ -1,10 +1,12 @@
 package image.search.pro;
 
-import com.loopj.android.image.SmartImageView;
-
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+
+import com.loopj.android.image.SmartImageView;
 
 public class ImageDisplayActivity extends Activity {
 
@@ -17,7 +19,18 @@ public class ImageDisplayActivity extends Activity {
 		ImageResult image = (ImageResult) getIntent().getSerializableExtra("result");
 		ivImage = (SmartImageView) findViewById(R.id.ivResult);
 		ivImage.setImageUrl(image.getFullUrl());
-		String sting;
+		String strEmail = "mike@grio.com";
+		
+		
+		
+		Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND); 
+		emailIntent.setType("application/image");
+		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, strEmail); 
+		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,"Test Subject"); 
+		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "From My App"); 
+		emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:///mnt/sdcard/Myimage.jpeg"));
+		startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+		
 		
 	}
 
