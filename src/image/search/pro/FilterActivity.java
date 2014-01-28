@@ -48,6 +48,8 @@ public class FilterActivity extends Activity {
 		});
 	}
 
+	
+	
 	private void initializeViews() {
 		
 		bSubmit = (Button) findViewById(R.id.bSubmit);

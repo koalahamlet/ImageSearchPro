@@ -30,12 +30,13 @@ public final class R {
         public static final int ic_settings=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000e;
-        public static final int bSearch=0x7f09000c;
+        public static final int action_settings=0x7f09000f;
+        public static final int bSearch=0x7f09000d;
+        public static final int bSend=0x7f09000b;
         public static final int bSubmit=0x7f090009;
-        public static final int etSearch=0x7f09000b;
+        public static final int etSearch=0x7f09000c;
         public static final int etSiteFilter=0x7f090008;
-        public static final int gvImages=0x7f09000d;
+        public static final int gvImages=0x7f09000e;
         public static final int ivResult=0x7f09000a;
         public static final int sprColorFilter=0x7f090004;
         public static final int sprImageSize=0x7f090002;

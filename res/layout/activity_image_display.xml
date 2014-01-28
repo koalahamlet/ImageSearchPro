@@ -16,10 +16,12 @@
        android:layout_alignParentTop="true"
        android:src="@android:drawable/screen_background_light"
        />
-   <!-- <Button
+   <Button
+       android:id="@+id/bSend"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
+       android:onClick="sendStuff"
        android:text="@string/share_button"
-        /> -->
+        />
 
 </RelativeLayout>
