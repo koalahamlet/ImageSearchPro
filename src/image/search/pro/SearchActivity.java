@@ -124,11 +124,12 @@ public class SearchActivity extends Activity {
 	private void searchTehNetz(int page) {
 
 		Toast.makeText(this, "Searching for " + query, Toast.LENGTH_SHORT).show();
+		String bigQuery = "https://ajax.googleapis.com/ajax/services/search/images?rsz=8&"
+				+ "start=" + page + "&v=1.0&q=" + Uri.encode(query);
 		// this talks to the Internet.
 		AsyncHttpClient client = new AsyncHttpClient();
 		client.get(
-				"https://ajax.googleapis.com/ajax/services/search/images?rsz=8&"
-						+ "start=" + page + "&v=1.0&q=" + Uri.encode(query),
+				bigQuery,
 				new JsonHttpResponseHandler() {
 					@Override
 					public void onSuccess(JSONObject response) {

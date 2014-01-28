@@ -28,6 +28,7 @@
                  android:id="@+id/tvFilterImageSize"
                  android:layout_below="@+id/tvFilterHeader"
                  android:layout_alignParentStart="true"
+                 android:textAppearance="@android:style/TextAppearance.Large"
                  android:layout_marginTop="40dp"/>
 
              <Spinner
@@ -44,6 +45,7 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="Color"
+                 android:textAppearance="@android:style/TextAppearance.Large"
                  android:id="@+id/tvFilterColor"
                  android:layout_below="@+id/tvFilterImageSize"
                  android:layout_alignParentLeft="true"
@@ -63,6 +65,7 @@
                  android:layout_height="wrap_content"
                  android:text="Image Type"
                  android:id="@+id/tvFilterImageType"
+                 android:textAppearance="@android:style/TextAppearance.Large"
                  android:layout_below="@+id/tvFilterColor"
                  android:layout_alignParentLeft="true"
                  android:layout_alignParentStart="true"
@@ -81,6 +84,7 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="Site Filter"
+                 android:textAppearance="@android:style/TextAppearance.Large"
                  android:id="@+id/tvFilterSite"
                  android:layout_below="@+id/tvFilterImageType"
                  android:layout_alignParentLeft="true"
