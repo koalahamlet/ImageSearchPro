@@ -6,7 +6,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -34,9 +33,16 @@ public class SearchActivity extends Activity {
 	GridView gvResults;
 	Button btnSearch;
 	String query;
+	String bigQuery;
+	String sColor = "any";
+	String sType = "any";
+	String sSize = "any";
+	String sWebsite = "";
 	ArrayList<ImageResult> imageResults = new ArrayList<ImageResult>();
 	SearchFilter filter = new SearchFilter();
 	ImageResultArrayAdapter imageAdapter;
+
+	// public static int REQUEST_CODE = 20;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +56,7 @@ public class SearchActivity extends Activity {
 			@Override
 			public void onLoadMore(int page, int totalItemsCount) {
 				// Append more data into the adapter
-//
+				//
 				searchTehNetz(totalItemsCount);
 
 			}
@@ -71,29 +77,46 @@ public class SearchActivity extends Activity {
 		});
 	}
 
-	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-//		 Inflate the menu; this adds items to the action bar if it is present.
+		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.search, menu);
 		return true;
-		  
-	}
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-	    
-		 switch (item.getItemId()) {
-		  case R.id.action_settings:
-			  Intent i = new Intent(this, FilterActivity.class);
-				 startActivity(i);
-		     break;
-		  default:
-		break; }
-		  return true;
 
 	}
-	
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_OK) {
+			SearchFilter sf = (SearchFilter) data
+					.getSerializableExtra("filter");
+			sColor = sf.getColor();
+			sSize = sf.getSize();
+			sType = sf.getType();
+			sWebsite = sf.getSite();
+			if(sWebsite==null){
+				sWebsite="";
+			}
+
+		}
+
+	};
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+
+		switch (item.getItemId()) {
+		case R.id.action_settings:
+			Intent i = new Intent(this, FilterActivity.class);
+			// magic number 7
+			startActivityForResult(i, 7);
+			break;
+		default:
+			break;
+		}
+		return true;
+
+	}
 
 	private void setupViews() {
 		etQuery = (EditText) findViewById(R.id.etSearch);
@@ -103,8 +126,8 @@ public class SearchActivity extends Activity {
 	}
 
 	public void onImageSearch(View v) {
-		//This part dismisses the keyboard
-		InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+		// This part dismisses the keyboard
+		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		imm.hideSoftInputFromWindow(etQuery.getWindowToken(), 0);
 		//
 		imageResults.clear();
@@ -112,36 +135,40 @@ public class SearchActivity extends Activity {
 		searchTehNetz(0);
 	}
 
-	
-
 	private void searchTehNetz(int page) {
 
-		Toast.makeText(this, "Searching for " + query, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "Searching for " + query, Toast.LENGTH_SHORT)
+				.show();
 		String bigQuery = "https://ajax.googleapis.com/ajax/services/search/images?rsz=8&"
-				+ "start=" + page + "&v=1.0&q=" + Uri.encode(query);
+				+ "start="
+				+ page
+				+ "&imgcolor="
+				+ sColor
+				+ "&as_sitesearch="
+				+ sWebsite
+				+ "&imgsz=" + sSize + "&imgtype=" + sType 
+				+ "&v=1.0&q="
+				+ Uri.encode(query);
+		Log.d("stuff", bigQuery);
 		// this talks to the Internet.
 		AsyncHttpClient client = new AsyncHttpClient();
-		client.get(
-				bigQuery,
-				new JsonHttpResponseHandler() {
-					@Override
-					public void onSuccess(JSONObject response) {
-						JSONArray imageJsonResults = null;
-						try {
-							imageJsonResults = response.getJSONObject(
-									"responseData").getJSONArray("results");
-							imageAdapter.addAll(ImageResult
-									.fromJSONArray(imageJsonResults));
-							Log.d("DEBUG", imageResults.toString());
-						} catch (JSONException e) {
-							e.printStackTrace();
-						}
-					}
+		client.get(bigQuery, new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(JSONObject response) {
+				JSONArray imageJsonResults = null;
+				try {
+					imageJsonResults = response.getJSONObject("responseData")
+							.getJSONArray("results");
+					imageAdapter.addAll(ImageResult
+							.fromJSONArray(imageJsonResults));
+					Log.d("DEBUG", imageResults.toString());
+				} catch (JSONException e) {
+					e.printStackTrace();
 				}
+			}
+		}
 
 		);
 
 	}
-
-	
 }

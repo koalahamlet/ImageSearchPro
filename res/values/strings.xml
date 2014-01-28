@@ -7,13 +7,14 @@
     <string name="search_hint">Enter Search Item</string>
     <string name="search_button">Search</string>
     <string name="save_button">Save</string>
-    <string name="share_button">Share</string>
+    <string name="share_button">Share this image</string>
     <string name="title_activity_image_display">ImageDisplayActivity</string>
     <string name="title_activity_filter">Filters</string>
     <string name="search_options">Advanced Search Options</string>
     
     
     <string-array name="colors">
+        <item >any</item>
         <item >black</item>
 		<item>blue</item>
 		<item>brown</item>
@@ -29,6 +30,7 @@
     </string-array>
     
     <string-array name="type">
+        <item >any</item>
         <item >face</item>
         <item >photo</item>
         <item >clipart</item>
@@ -36,6 +38,7 @@
     </string-array>
     
     <string-array name="size">
+        <item >any</item>
         <item>icon</item>
         <item>small</item>
         <item>medium</item>

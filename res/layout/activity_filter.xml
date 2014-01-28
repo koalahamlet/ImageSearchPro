@@ -36,6 +36,7 @@
                  android:layout_height="wrap_content"
                  android:id="@+id/sprImageSize"
                  android:entries="@array/size"
+                 
                  android:layout_alignBottom="@+id/tvFilterImageSize"
                  
                  android:layout_alignParentEnd="true"/>
@@ -107,29 +108,7 @@
                  android:layout_centerHorizontal="true"
                  android:text="@string/save_button" />
 
-             <CheckBox
-                 android:id="@+id/cbSize"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_alignBaseline="@+id/tvFilterImageSize"
-                 android:layout_alignBottom="@+id/tvFilterImageSize"
-                 android:layout_toRightOf="@+id/tvFilterImageSize"
-                  />
-
-             <CheckBox
-                 android:id="@+id/cbColor"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_alignTop="@+id/tvFilterColor"
-                 android:layout_toRightOf="@+id/tvFilterColor"
-                  />
-
-             <CheckBox
-                 android:id="@+id/cbType"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_alignTop="@+id/tvFilterImageType"
-                 android:layout_toRightOf="@+id/tvFilterImageSize" />
+        
 
   </RelativeLayout>
 </ScrollView>
