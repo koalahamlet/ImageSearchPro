@@ -76,13 +76,6 @@ public class SearchActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 //		 Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.search, menu);
-//		MenuItem mi = (MenuItem) findViewById(R.id.action_settings);
-		
-//
-//	    menu.add(0, SETTINGS, 0, "Settings")
-//	        .setIcon(R.drawable.ic_settings)
-//	        .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-
 		return true;
 		  
 	}
