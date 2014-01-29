@@ -62,6 +62,8 @@ public class FilterActivity extends Activity {
 				
 				
 				if(!(etWebsite.getText().toString()).isEmpty()){
+					sWebsite = etWebsite.getText().toString();
+					sWebsite.replaceAll("\\s+","");
 					sfIsTheBest.setSite(sWebsite);
 				}
 				

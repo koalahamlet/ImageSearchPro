@@ -11,6 +11,15 @@
     <string name="title_activity_image_display">ImageDisplayActivity</string>
     <string name="title_activity_filter">Filters</string>
     <string name="search_options">Advanced Search Options</string>
+    <string name="image_size">Image Size</string>
+    <string name="color">Color</string>
+    <string name="image_type">Image Type</string>
+    <string name="site_filter">Site Filter</string>
+    
+    
+    <!--<string name="color">Color</string>
+    <string name="color">Color</string> -->
+    
     
     
     <string-array name="colors">

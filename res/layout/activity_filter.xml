@@ -24,7 +24,7 @@
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:text="Image Size"
+                 android:text="@string/image_size"
                  android:id="@+id/tvFilterImageSize"
                  android:layout_below="@+id/tvFilterHeader"
                  android:layout_alignParentStart="true"
@@ -45,7 +45,7 @@
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:text="Color"
+                 android:text="@string/color"
                  android:textAppearance="@android:style/TextAppearance.Large"
                  android:id="@+id/tvFilterColor"
                  android:layout_below="@+id/tvFilterImageSize"
@@ -64,7 +64,7 @@
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:text="Image Type"
+                 android:text="@string/image_type"
                  android:id="@+id/tvFilterImageType"
                  android:textAppearance="@android:style/TextAppearance.Large"
                  android:layout_below="@+id/tvFilterColor"
@@ -84,7 +84,7 @@
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:text="Site Filter"
+                 android:text="@string/site_filter"
                  android:textAppearance="@android:style/TextAppearance.Large"
                  android:id="@+id/tvFilterSite"
                  android:layout_below="@+id/tvFilterImageType"
@@ -93,11 +93,12 @@
                  android:layout_marginTop="40dp"/>
 
              <EditText
-                 android:layout_width="wrap_content"
+                 android:layout_width="200dp"
                  android:layout_height="wrap_content"
                  android:id="@+id/etSiteFilter"
+                 android:inputType="textEmailAddress"
                  android:layout_alignBottom="@+id/tvFilterSite"
-                 android:layout_alignStart="@+id/sprImageSize"
+                 android:layout_alignEnd="@+id/tvFilterSite"
                  android:layout_alignParentEnd="true"/>
 
              <Button

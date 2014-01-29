@@ -29,6 +29,7 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 public class SearchActivity extends Activity {
 
 	private static final int SETTINGS = 1;
+	SearchFilter sf;
 	EditText etQuery;
 	GridView gvResults;
 	Button btnSearch;
@@ -56,7 +57,6 @@ public class SearchActivity extends Activity {
 			@Override
 			public void onLoadMore(int page, int totalItemsCount) {
 				// Append more data into the adapter
-				//
 				searchTehNetz(totalItemsCount);
 
 			}
@@ -85,10 +85,12 @@ public class SearchActivity extends Activity {
 
 	}
 
+
+	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK) {
-			SearchFilter sf = (SearchFilter) data
+			 sf = (SearchFilter) data
 					.getSerializableExtra("filter");
 			sColor = sf.getColor();
 			sSize = sf.getSize();
@@ -108,6 +110,7 @@ public class SearchActivity extends Activity {
 		switch (item.getItemId()) {
 		case R.id.action_settings:
 			Intent i = new Intent(this, FilterActivity.class);
+			
 			// magic number 7
 			startActivityForResult(i, 7);
 			break;
